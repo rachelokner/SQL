@@ -1,0 +1,32 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE singers (id INTEGER PRIMARY KEY AUTOINCREMENT, fullname TEXT,age INTEGER, where_from TEXT);
+
+INSERT INTO singers(fullname, age, where_from) VALUES ("Dua Lipa", 27, "UK");
+INSERT INTO singers(fullname, age, where_from) VALUES ("Miley Cyrus", 30, "USA");
+INSERT INTO singers(fullname, age, where_from) VALUES ("Rihanna", 35, "Barbados");
+INSERT INTO singers(fullname, age, where_from) VALUES ("Justin Bieber", 29, "Canada");
+INSERT INTO singers(fullname, age, where_from) VALUES ("Ariana Grande", 30, "USA");
+INSERT INTO singers(fullname, age, where_from) VALUES ("Olivia Rodrigo", 20, "USA");
+
+CREATE TABLE songs (id INTEGER PRIMARY KEY AUTOINCREMENT, singer_id INTEGER, name TEXT, release_date INTEGER);
+
+INSERT INTO songs (singer_id, name, release_date) VALUES (1, "Levitating", 2020);
+INSERT INTO songs (singer_id, name, release_date) VALUES (1, "New Rules", 2017);
+INSERT INTO songs (singer_id, name, release_date) VALUES (2, "Flowers", 2023);
+INSERT INTO songs (singer_id, name, release_date) VALUES (2, "Party in the USA", 2009);
+INSERT INTO songs (singer_id, name, release_date) VALUES (3, "Umbrella", 2007);
+INSERT INTO songs (singer_id, name, release_date) VALUES (3, "Pon de Replay", 2005);
+INSERT INTO songs (singer_id, name, release_date) VALUES (4, "Baby", 2010);
+INSERT INTO songs (singer_id, name, release_date) VALUES (5, "God is a Women", 2018);
+INSERT INTO songs (singer_id, name, release_date) VALUES (5, "Into You", 2016);
+INSERT INTO songs (singer_id, name, release_date) VALUES (6, "Driver's Liscense", 2021);
+INSERT INTO songs (singer_id, name, release_date) VALUES (6, "Deja Vu", 2021);
+INSERT INTO songs (singer_id, name, release_date) VALUES (6, "Vampire", 2023);
+
+/* Joining the two tables with singer name, song name, and release date of the songs  */
+SELECT singers.fullname, songs.name, release_date 
+FROM singers 
+JOIN songs 
+ON singers.id = songs.singer_id 
+ORDER BY fullname;
